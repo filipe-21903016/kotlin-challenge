@@ -1,13 +1,13 @@
-package pt.ulusofona.cm.kotlin.challenge
+package pt.ulusofona.cm.kotlin.challenge.models
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.Date
-import java.util.stream.Stream
 
-class Pessoa(var nome : String, var dataDeNascimento : Date)
+data class Pessoa(val nome : String, val dataDeNascimento : LocalDate)
 {
     var veiculos = mutableListOf<Veiculo>()
     var carta : Carta? = null
-    var posicao : Posicao? = null
+    var posicao : Posicao = Posicao()
 
     fun comprarVeiculo(veiculo : Veiculo) {
         this.veiculos.add(veiculo)
@@ -44,4 +44,11 @@ class Pessoa(var nome : String, var dataDeNascimento : Date)
     fun tirarCarta(){
         this.carta = null
     }
+
+    override fun toString(): String {
+        return "Pessoa | $nome | ${dataDeNascimento.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
+            .toString()} | " + posicao.toString()
+    }
+
+
 }
