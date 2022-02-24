@@ -6,7 +6,9 @@ abstract class Veiculo ( var identificador: String) : Movimentavel{
     var posicao : Posicao? = null
     var dataDeAquisicao : LocalDate? = null
 
-    fun requerCarta() : Boolean {
-        return false
+    abstract fun requerCarta(): Boolean
+
+    override fun moverPara(x:Int, y:Int){
+        posicao = Posicao(x,y)
     }
 }

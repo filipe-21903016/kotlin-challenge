@@ -14,25 +14,27 @@ class Pessoa(var nome : String, var dataDeNascimento : Date)
     }
 
     fun pesquisarVeiculo(identificador : String) : Veiculo? {
-        if (veiculos.isNotEmpty())
+        /*if (veiculos.isNotEmpty())
         {
            return veiculos.stream().filter { identificador.equals(identificador) }.toList().firstOrNull()
-        }
+        }*/
         return null
     }
     fun venderVeiculo(identificador: String, comprador : Pessoa) {
         // sell vehicle
+        /*
         var veiculo = veiculos.stream().filter { identificador.equals(identificador) }.toList().firstOrNull()
         if (veiculo != null) {
             comprador.veiculos.add(veiculo)
         }
         this.veiculos.remove(veiculo)
+         */
     }
 
     fun moverVeiculoPara(identificador: String, x : Int, y: Int)
     {
-        var veiculo = veiculos.stream().filter { identificador.equals(identificador) }.toList().firstOrNull()
-        veiculo?.posicao = Posicao(x, y)
+        //var veiculo = veiculos.stream().filter { identificador.equals(identificador) }.toList().firstOrNull()
+        //veiculo?.posicao = Posicao(x, y)
     }
 
     fun temCarta(): Boolean {
