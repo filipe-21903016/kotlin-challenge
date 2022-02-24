@@ -1,8 +1,9 @@
 package pt.ulusofona.cm.kotlin.challenge
 import java.time.LocalDate
+import java.util.Date
 import java.util.stream.Stream
 
-class Pessoa(var nome : String, var dataDeNascimento : LocalDate)
+class Pessoa(var nome : String, var dataDeNascimento : Date)
 {
     var veiculos = mutableListOf<Veiculo>()
     var carta : Carta? = null
