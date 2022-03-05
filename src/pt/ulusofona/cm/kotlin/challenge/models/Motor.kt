@@ -19,6 +19,10 @@ data class Motor (val cavalos : Int,val cilindrada : Int): Ligavel{
         ligado = false
     }
 
+    override fun estaLigado(): Boolean {
+        return ligado
+    }
+
     override fun toString(): String {
         return "Motor | $cavalos | $cilindrada"
     }

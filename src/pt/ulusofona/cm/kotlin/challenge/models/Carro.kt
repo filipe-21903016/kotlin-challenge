@@ -14,6 +14,10 @@ data class Carro(override val identificador : String, var motor : Motor) : Veicu
         motor.desligar()
     }
 
+    override fun estaLigado(): Boolean {
+        return motor.estaLigado()
+    }
+
     override fun requerCarta(): Boolean {
         return true
     }
