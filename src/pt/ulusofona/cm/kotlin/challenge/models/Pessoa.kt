@@ -3,10 +3,7 @@ package pt.ulusofona.cm.kotlin.challenge.models
 import pt.ulusofona.cm.kotlin.challenge.exceptions.MenorDeIdadeException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.PessoaSemCartaException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
-import java.time.LocalDate
-import java.time.temporal.ChronoUnit
 import java.util.Date
-import java.util.concurrent.TimeUnit
 
 data class Pessoa(val nome: String, val dataDeNascimento: Date) {
     var veiculos = mutableListOf<Veiculo>()
@@ -60,7 +57,7 @@ data class Pessoa(val nome: String, val dataDeNascimento: Date) {
     }
 
     override fun toString(): String {
-        return "Pessoa | $nome | ${Data.format(dataDeNascimento)} | $posicao"
+        return "Pessoa | $nome | ${DateFormatter.format(dataDeNascimento)} | $posicao"
     }
 
 

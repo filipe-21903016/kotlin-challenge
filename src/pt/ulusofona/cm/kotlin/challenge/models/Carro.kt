@@ -4,7 +4,6 @@ import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoDesligadoException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoLigadoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Ligavel
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
-import java.time.format.DateTimeFormatter
 
 data class Carro(override val identificador : String, var motor : Motor) : Veiculo(identificador), Movimentavel,Ligavel
 {
@@ -24,7 +23,7 @@ data class Carro(override val identificador : String, var motor : Motor) : Veicu
     }
 
     override fun toString(): String {
-        return "Carro | $identificador | ${Data.format(dataDeAquisicao)} | $posicao"
+        return "Carro | $identificador | ${DateFormatter.format(dataDeAquisicao)} | $posicao"
     }
 
 }
