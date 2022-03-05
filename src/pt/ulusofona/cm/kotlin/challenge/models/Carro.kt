@@ -24,7 +24,7 @@ data class Carro(override val identificador : String, var motor : Motor) : Veicu
     }
 
     override fun toString(): String {
-        return "Carro | $identificador | $dataDeAquisicao | $posicao"
+        return "Carro | $identificador | ${Data.format(dataDeAquisicao)} | $posicao"
     }
 
 }

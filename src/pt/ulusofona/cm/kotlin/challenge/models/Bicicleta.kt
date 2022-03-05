@@ -9,7 +9,7 @@ data class Bicicleta(override val identificador : String) : Veiculo(identificado
     }
 
     override fun toString(): String {
-        return "Bicicleta | $identificador | $dataDeAquisicao | $posicao"
+        return "Bicicleta | $identificador | ${Data.format(dataDeAquisicao)} | $posicao"
     }
 
 

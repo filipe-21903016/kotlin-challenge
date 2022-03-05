@@ -5,6 +5,8 @@ import pt.ulusofona.cm.kotlin.challenge.exceptions.PessoaSemCartaException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
+import java.util.Date
+import java.util.concurrent.TimeUnit
 
 data class Pessoa(val nome: String, val dataDeNascimento: Date) {
     var veiculos = mutableListOf<Veiculo>()
@@ -12,7 +14,7 @@ data class Pessoa(val nome: String, val dataDeNascimento: Date) {
     var posicao: Posicao = Posicao()
 
     fun comprarVeiculo(veiculo: Veiculo) {
-        veiculo.dataDeAquisicao = Date.now()
+        veiculo.dataDeAquisicao = Date()
         this.veiculos.add(veiculo)
     }
 
@@ -51,12 +53,14 @@ data class Pessoa(val nome: String, val dataDeNascimento: Date) {
     }
 
 
-    private fun getIdade(): Int {
-        return ChronoUnit.YEARS.between(this.dataDeNascimento.data, LocalDate.now()).toInt()
+    private fun getIdade(): Long {
+        val now = Date()
+        val timeDiffMillis : Long = now.getTime() - dataDeNascimento.getTime()
+        return (timeDiffMillis / (1000 * 60 * 60 * 24)) / 365
     }
 
     override fun toString(): String {
-        return "Pessoa | $nome | $dataDeNascimento | $posicao"
+        return "Pessoa | $nome | ${Data.format(dataDeNascimento)} | $posicao"
     }
 
 
