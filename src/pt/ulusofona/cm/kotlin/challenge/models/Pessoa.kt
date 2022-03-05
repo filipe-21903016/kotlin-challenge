@@ -4,9 +4,9 @@ import pt.ulusofona.cm.kotlin.challenge.exceptions.MenorDeIdadeException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.PessoaSemCartaException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
-import java.util.Date
+import java.util.*
 
-data class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel{
+data class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel {
     var veiculos = mutableListOf<Veiculo>()
     var carta: Carta? = null
     var posicao: Posicao = Posicao()
@@ -33,7 +33,7 @@ data class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel{
     }
 
     fun moverVeiculoPara(identificador: String, x: Int, y: Int) {
-        if(!this.temCarta())
+        if (!this.temCarta())
             throw PessoaSemCartaException("$nome não tem carta para conduzir o veículo indicado")
         val veiculo = pesquisarVeiculo(identificador)
         veiculo.moverPara(x, y)
@@ -50,14 +50,16 @@ data class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel{
             carta = Carta()
     }
 
-    private fun getIdade(): Long {
-        val now = Date()
-        val timeDiffMillis : Long = now.getTime() - dataDeNascimento.getTime()
-        return (timeDiffMillis / (1000 * 60 * 60 * 24)) / 365
+    private fun getIdade(): Int {
+        val today: Calendar = GregorianCalendar()
+        val birthday: Calendar = GregorianCalendar()
+        today.setTime(Date())
+        birthday.setTime(dataDeNascimento)
+        return today.get(Calendar.YEAR) - birthday.get(Calendar.YEAR)
     }
 
     override fun moverPara(x: Int, y: Int) {
-        posicao.alterarPosicaoPara(x,y)
+        posicao.alterarPosicaoPara(x, y)
     }
 
     override fun toString(): String {
