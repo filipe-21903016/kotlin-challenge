@@ -33,9 +33,9 @@ data class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel {
     }
 
     fun moverVeiculoPara(identificador: String, x: Int, y: Int) {
-        if (!this.temCarta())
-            throw PessoaSemCartaException("$nome não tem carta para conduzir o veículo indicado")
         val veiculo = pesquisarVeiculo(identificador)
+        if (veiculo.requerCarta() && !this.temCarta())
+            throw PessoaSemCartaException("$nome não tem carta para conduzir o veículo indicado")
         veiculo.moverPara(x, y)
     }
 
