@@ -27,13 +27,9 @@ fun main(){
     for (veiculo in maria.veiculos)
         println(" - $veiculo")
 
-    maria.tirarCarta()
-    maria.moverVeiculoPara("KIT",3,4)
-    println("moveu veiculo")
-    for (veiculo in maria.veiculos)
-        println(" - $veiculo")
 
-    maria.moverVeiculoPara("KIT",3,4)
+    maria.moverPara(1,1)
+    maria.moverPara(1,1)
 
 
 

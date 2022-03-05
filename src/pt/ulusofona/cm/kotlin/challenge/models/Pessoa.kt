@@ -3,9 +3,10 @@ package pt.ulusofona.cm.kotlin.challenge.models
 import pt.ulusofona.cm.kotlin.challenge.exceptions.MenorDeIdadeException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.PessoaSemCartaException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
+import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 import java.util.Date
 
-data class Pessoa(val nome: String, val dataDeNascimento: Date) {
+data class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel{
     var veiculos = mutableListOf<Veiculo>()
     var carta: Carta? = null
     var posicao: Posicao = Posicao()
@@ -53,6 +54,10 @@ data class Pessoa(val nome: String, val dataDeNascimento: Date) {
         val now = Date()
         val timeDiffMillis : Long = now.getTime() - dataDeNascimento.getTime()
         return (timeDiffMillis / (1000 * 60 * 60 * 24)) / 365
+    }
+
+    override fun moverPara(x: Int, y: Int) {
+        posicao.alterarPosicaoPara(x,y)
     }
 
     override fun toString(): String {
