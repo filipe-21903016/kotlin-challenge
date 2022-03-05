@@ -49,7 +49,6 @@ data class Pessoa(val nome: String, val dataDeNascimento: Date) {
             carta = Carta()
     }
 
-
     private fun getIdade(): Long {
         val now = Date()
         val timeDiffMillis : Long = now.getTime() - dataDeNascimento.getTime()

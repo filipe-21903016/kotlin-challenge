@@ -8,14 +8,10 @@ import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 data class Carro(override val identificador : String, var motor : Motor) : Veiculo(identificador), Movimentavel,Ligavel
 {
     override fun ligar() {
-        if (motor.ligado)
-            throw VeiculoLigadoException("Veiculo já se encontra ligado")
-        motor.ligado = true
+        motor.ligar()
     }
     override fun desligar() {
-        if (!motor.ligado)
-            throw VeiculoDesligadoException("Veiculo já se encontra desligado")
-        motor.ligado = false
+        motor.desligar()
     }
 
     override fun requerCarta(): Boolean {
