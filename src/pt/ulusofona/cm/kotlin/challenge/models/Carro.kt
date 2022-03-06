@@ -29,7 +29,8 @@ data class Carro(override val identificador : String, var motor : Motor) : Veicu
 
     override fun moverPara(x: Int, y: Int) {
         try {
-            ligar()
+            if (!estaLigado())
+                ligar()
             posicao.alterarPosicaoPara(x,y)
             desligar()
         }catch (e : AlterarPosicaoException){
