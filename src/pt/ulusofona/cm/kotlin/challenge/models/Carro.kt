@@ -27,6 +27,7 @@ data class Carro(override val identificador : String, var motor : Motor) : Veicu
         try {
             ligar()
             posicao.alterarPosicaoPara(x,y)
+            desligar()
         }catch (e : AlterarPosicaoException){
             desligar()
             throw e

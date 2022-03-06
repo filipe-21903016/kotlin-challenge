@@ -14,9 +14,10 @@ fun main(){
     val bicla = Bicicleta("Bicla")
 
 
-    maria.comprarVeiculo(bicla)
-    maria.moverVeiculoPara("Bicla",1,4)
-    maria.moverPara(1,1)
+    maria.comprarVeiculo(carro)
+    maria.tirarCarta()
+    maria.moverVeiculoPara("KIT",1,4)
+    maria.moverVeiculoPara("KIT",1,4)
 
 
 
