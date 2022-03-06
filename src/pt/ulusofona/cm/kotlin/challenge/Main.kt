@@ -11,24 +11,11 @@ fun main(){
     var motor = Motor(1000,500)
     var carro = Carro("KIT",motor)
     var maria : Pessoa = Pessoa("Maria", f.parse("05-05-2004"))
-    filipe.comprarVeiculo(carro)
-    println("Filipe comprou o carro")
-    println("Veiculos Filipe:")
-    for (veiculo in filipe.veiculos)
-        println(" - $veiculo")
+    val bicla = Bicicleta("Bicla")
 
-    filipe.venderVeiculo("KIT",maria)
-    println("Filipe vendeu KIT")
-    println("Veiculos Filipe:")
-    for (veiculo in filipe.veiculos)
-        println(" - $veiculo")
-    println("")
-    println("Veiculos Maria:")
-    for (veiculo in maria.veiculos)
-        println(" - $veiculo")
-    maria.tirarCarta()
 
-    maria.moverPara(1,1)
+    maria.comprarVeiculo(bicla)
+    maria.moverVeiculoPara("Bicla",1,4)
     maria.moverPara(1,1)
 
 

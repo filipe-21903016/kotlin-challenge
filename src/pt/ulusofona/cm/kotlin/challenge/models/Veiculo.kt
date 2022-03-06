@@ -8,7 +8,5 @@ abstract class Veiculo (open val identificador: String) : Movimentavel {
     var dataDeAquisicao : Date = Date()
 
     abstract fun requerCarta(): Boolean
-    override fun moverPara(x:Int, y:Int){
-        posicao.alterarPosicaoPara(x,y);
-    }
+    abstract override fun moverPara(x:Int, y:Int)
 }

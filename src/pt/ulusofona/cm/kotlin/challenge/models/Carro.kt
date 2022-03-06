@@ -1,5 +1,6 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
+import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoDesligadoException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoLigadoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Ligavel
@@ -20,6 +21,16 @@ data class Carro(override val identificador : String, var motor : Motor) : Veicu
 
     override fun requerCarta(): Boolean {
         return true
+    }
+
+    override fun moverPara(x: Int, y: Int) {
+        try {
+            ligar()
+            posicao.alterarPosicaoPara(x,y)
+        }catch (e : AlterarPosicaoException){
+            desligar()
+            throw e
+        }
     }
 
     override fun toString(): String {
